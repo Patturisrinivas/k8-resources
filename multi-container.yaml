@@ -1,11 +1,11 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: nginx
-  namespace: mutil-container
+  name: mutil-container
 spec:
   containers:
   - name: nginx
     image: nginx
   - name: almalinux
-    image: almalinux:9.0
+    image: almalinux:9
+    command: ["sleep", "1000"]
