@@ -1,10 +1,10 @@
-kind: pod
+kind: Pod
 apiVersion: v1
 metadata:
-  name: ngnix
+  name: nginx
   namespace: expense
 spec:
   containers:
-  - name: ngnix
+  - name: nginx
     image: nginx
-    
+  
