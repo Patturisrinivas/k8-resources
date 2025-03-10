@@ -1,24 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginx-deployment
   labels:
     app: nginx
-    tier: frontend
-    purpose: deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: nginx
-      tier: frontend
-      purpose: deployment
   template:
     metadata:
       labels:
         app: nginx
-        tier: frontend
-        purpose: deployment
     spec:
     containers:
     - name: nginx
@@ -27,18 +21,16 @@ spec:
       - containerPort: 80
     
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: nginx
 spec:
   type: LoadBalancer
   selector: # labels are used as selectors
     app: nginx
-    tier: frontend
-    purpose: deployment
   ports:
   - protocol: TCP
     port: 80 # service port
     targetPort: 80
-    nodePort: 30007
+    nodePort: 32000
