@@ -24,3 +24,19 @@ spec:
       containers:
       - name: nginx
         image: nginx:stable-perl
+---
+apiVersion: apps/v1
+kind: ReplicaSet  
+metadata:
+  name: nginx
+  namespace: expense
+spec:
+  type: LoadBalancer
+  selector: # labels are used as selectors
+    app: frontend
+    project: expense
+    environment: dev
+  ports:
+  - protocol: TCP
+    port: 80 # service port
+    targetPort: 8080 # container port
