@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Replicaset
+kind: ReplicaSet
 metadata:
   name: nginx
   # these labels are applied to the replicaset
@@ -23,4 +23,4 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+        image: nginx:stable-perl
